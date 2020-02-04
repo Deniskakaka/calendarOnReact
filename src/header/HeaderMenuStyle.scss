@@ -1,0 +1,111 @@
+.header-menu{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100vw;
+    height: 120px;
+    font-family: Roboto;
+    border-bottom: 1px solid #dadce0;
+    padding-left: 100px;
+
+    &__create{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50px;
+        width: 130px;
+        border-radius: 30px;
+        border: none;
+        outline: none;
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22);
+        background-color: white;
+        margin-right: 50px;
+        font-size: 18px;
+        font-weight: 600;
+
+        & img{
+            margin-right: 10px;
+            width: 45px;
+            height: 45px;
+        }
+
+        &:hover{
+            box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 15px 15px rgba(0,0,0,0.22);
+            transition: 1s;
+        }
+    }
+
+    &__today{
+        border: 1px solid grey;
+        border-radius: 3px;
+        height: 40px;
+        width: 90px;
+        background-color: transparent;
+        outline: none;
+        margin-right: 50px;
+        font-weight: 700;
+        font-size: 18px;
+
+        &:hover{
+            background-color: #d5d5d5;
+            transition: 1s;
+        }
+    }
+}
+
+.header-menu-change{
+    display: flex;
+
+    &__left{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        transform: rotate(180deg);
+
+        &:hover{
+            background-color: #D3D3D3;
+            transition: 1s;
+        }
+    }
+
+    &__right{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        background-color: transparent;
+        border: none;
+        outline: none;
+
+        &:hover{
+            background-color: #D3D3D3;
+            transition: 1s;
+        }
+    }
+}
+
+.header-menu-months{
+    min-width: 250px;
+    display: flex;
+
+    &__nowMonth,
+    &__nextMonth,
+    &__year{
+        font-size: 18px;
+        font-weight: 600;
+        margin-right: 20px;
+    }
+    &__line{
+        font-size: 18px;
+        font-weight: 600;
+        margin-right: 20px;
+    }
+}
