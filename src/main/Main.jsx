@@ -30,7 +30,6 @@ class Main extends React.Component {
 	};
 
 	render() {
-		console.log(this.state.timeStart);
 		return (
 			<main>
 				<Week
@@ -39,17 +38,20 @@ class Main extends React.Component {
 					changeTime={this.changeTime}
 					tasks={this.props.tasks}
 					openPopapWithDelete={this.props.openPopapWithDelete}
+					showData={this.props.showData} 
 				/>
 				<Popap
 					open={this.props.open}
 					closePopap={this.props.closePopap}
-					timeStart={this.state.timeStart}
-					timeEnd={this.state.timeEnd}
 					start={this.state.start}
 					creacteTask={this.props.creacteTask}
 					delete={this.props.delete}
 					deleteTask={this.props.deleteTask}
-					tasks={this.props.tasks}   
+					tasks={this.props.tasks}
+					start={this.props.start} 
+					end={this.props.end} 
+					timeStart={this.props.timeStart}
+					timeEnd={this.props.timeEnd} 
 				/>
 			</main>
 		);

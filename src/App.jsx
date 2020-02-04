@@ -10,6 +10,7 @@ class App extends React.Component {
         super(props);
         this.creacteTask = this.creacteTask.bind(this);
         this.deleteTask = this.deleteTask.bind(this);
+        this.showData = this.showData.bind(this);
     }
     state = {
         ArrayOFWeek: [0,1,2,3,4,5,6],
@@ -17,7 +18,11 @@ class App extends React.Component {
         saturday: moment().isoWeekday(6),
         open: false,
         delete: false,
-        tasks: []
+        tasks: [],
+        start:'',
+        end:'',
+        timeStart:'',
+        timeEnd:''
     };
 
     nextWeek = () => {
@@ -72,21 +77,37 @@ class App extends React.Component {
         })
     }
 
-    deleteTask (start, end, timeStart,tasks) {
+    deleteTask (start,end,timeStart,timeEnd,tasks) {
         this.setState({
             open:false
         })
        for (let i = 0; i < tasks.length; i++) {
-           if (tasks[i].start === start && tasks[i].end === end && tasks[i].timeStart === timeStart) {
+           if (tasks[i].start === start && tasks[i].end === end && tasks[i].timeStart === timeStart && tasks[i].timeEnd === timeEnd) {
                mass.splice(i,1);
            }
        }
     }
 
+    showData (start, end,timeStart, timeEnd) {
+        this.setState({
+            start: start,
+            end: end,
+            timeStart: timeStart,
+            timeEnd: timeEnd
+        })
+    }
+
     render() {
         return (
            <> 
-            <Header openPopap={this.openPopap} monday={this.state.monday} saturday={this.state.saturday} ArrayOFWeek={this.state.ArrayOFWeek} nextWeek={this.nextWeek} lastWeek={this.lastWeek} toDay={this.toDay}/>
+            <Header 
+                openPopap={this.openPopap} 
+                monday={this.state.monday} 
+                saturday={this.state.saturday} 
+                ArrayOFWeek={this.state.ArrayOFWeek} 
+                nextWeek={this.nextWeek} lastWeek={this.lastWeek} 
+                toDay={this.toDay}
+            />
             <Main 
                 ArrayOFWeek={this.state.ArrayOFWeek} 
                 openPopap={this.openPopap} 
@@ -96,7 +117,12 @@ class App extends React.Component {
                 tasks={this.state.tasks} 
                 delete={this.state.delete}
                 openPopapWithDelete={this.openPopapWithDelete}
-                deleteTask={this.deleteTask}     
+                deleteTask={this.deleteTask} 
+                showData={this.showData} 
+                start={this.state.start}
+                end={this.state.end} 
+                timeStart={this.state.timeStart}
+                timeEnd={this.state.timeEnd}    
             />
            </> 
         );

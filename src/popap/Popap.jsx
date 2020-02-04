@@ -9,7 +9,7 @@ class Popap extends React.Component {
         title: '',
         dateStart: '',
         dateEnd: '',
-        start: this.props.timeStart,
+        start: '' ,
         end: ''
     }
 
@@ -45,8 +45,8 @@ class Popap extends React.Component {
                     <textarea className="event__description" name="description" cols="15" rows="5"
                         placeholder="Add description" onChange={this.handleChange} value={this.state.description} ></textarea>
                     <div className="footer-popup">
-                        {this.props.delete ? <span className="event__btn-delete" onClick={(e) => this.props.deleteTask(
-                            this.state.start,this.state.end,this.state.dateStart,this.props.tasks
+                        {true ? <span className="event__btn-delete" onClick={(e) => this.props.deleteTask(
+                            this.props.start,this.props.end,this.props.timeStart,this.props.timeEnd,this.props.tasks
                         )}><img className="bascket"
                                 src="https://img.icons8.com/windows/32/000000/trash.png"></img></span>: ''}
                         <button className="event__btn-save" onClick={(e) => this.props.creacteTask({
