@@ -15,9 +15,6 @@ class Main extends React.Component {
           ArrayOFWeek={this.props.ArrayOFWeek}
           openPopap={this.props.openPopap}
           tasks={this.props.tasks}
-          openPopapWithDelete={
-            this.props.openPopapWithDelete
-          }
           showData={this.props.showData}
         />
         {this.props.open && <Popap

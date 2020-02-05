@@ -10,7 +10,6 @@ class Popap extends React.Component {
     dateEnd: "",
     start: "",
     end: "",
-    id: getRandomIntInclusive(0,100)
   };
 
   componentDidMount() {
@@ -118,7 +117,7 @@ class Popap extends React.Component {
             value={this.state.description}
           ></textarea>
           <div className="footer-popup">
-            {true ? (
+            {this.props.delete ? (
               <span
                 className="event__btn-delete"
                 onClick={e =>
@@ -145,7 +144,6 @@ class Popap extends React.Component {
                   timeStart: this.state.dateStart,
                   timeEnd: this.state.dateEnd,
                   description: this.state.description,
-                  id: this.state.id
                 })
               }
             >

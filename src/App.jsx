@@ -2,8 +2,9 @@ import React from "react";
 import Header from "./header/Header.jsx";
 import Main from "./main/Main.jsx";
 import moment from "moment";
+import { createTask, fetchTasksList, deleteTask} from './tasksFunctions.js';
 
-let mass = [];
+const baseUrl = 'https://5e3194feb92d240014ea4d2b.mockapi.io/api/v1/tasks';
 
 class App extends React.Component {
   constructor(props) {
@@ -12,18 +13,33 @@ class App extends React.Component {
     this.deleteTask = this.deleteTask.bind(this);
     this.showData = this.showData.bind(this);
   }
+
   state = {
     ArrayOFWeek: [0, 1, 2, 3, 4, 5, 6],
     monday: moment().isoWeekday(1),
     saturday: moment().isoWeekday(6),
     open: false,
-    delete: false,
+    delete: true,
     tasks: [],
     start: "",
     end: "",
     timeStart: "",
     timeEnd: "",
     id:""
+  };
+
+  componentDidMount() {
+      this.fetchTasks() 
+  }
+
+  fetchTasks= () => {
+    fetchTasksList()
+        .then(tasksList => 
+            this.setState({
+                tasks: tasksList,
+                open:false
+            })
+    );
   };
 
   nextWeek = () => {
@@ -57,44 +73,28 @@ class App extends React.Component {
   openPopap = () => {
     this.setState({
       open: true,
-      delete:false
-    });
-  };
-
-  openPopapWithDelete = () => {
-    this.setState({
-      open: true,
-      delete: true
     });
   };
 
   closePopap = () => {
     this.setState({
       open: false,
-      delete: false
     });
   };
 
   creacteTask(object) {
-    mass.push(object);
+    createTask(object).then(result => {
+      this.fetchTasks()
+    })
     this.setState({
-      tasks: mass,
       open:false,
     });
   }
 
   deleteTask(id, tasks) {
-    this.setState({
-      open: false,
-      delete: false
-    });
-    for (let i = 0; i < tasks.length; i++) {
-      if (
-        tasks[i].id === id
-      ) {
-        mass.splice(i, 1);
-      }
-    }
+    deleteTask(id).then(result => {
+      this.fetchTasks()
+    })
   }
 
   showData(start, end, timeStart, timeEnd,id) {
@@ -103,13 +103,11 @@ class App extends React.Component {
       end: end,
       timeStart: timeStart,
       timeEnd: timeEnd,
-      id:id,
-      delete: true
+      id:id
     });
   }
 
   render() {
-    console.log(this.state.tasks)
     return (
       <>
         <Header
@@ -129,7 +127,6 @@ class App extends React.Component {
           creacteTask={this.creacteTask}
           tasks={this.state.tasks}
           delete={this.state.delete}
-          openPopapWithDelete={this.openPopapWithDelete}
           deleteTask={this.deleteTask}
           showData={this.showData}
           start={this.state.start}
@@ -137,7 +134,7 @@ class App extends React.Component {
           timeStart={this.state.timeStart}
           timeEnd={this.state.timeEnd}
           id={this.state.id}
-        />
+        />s
       </>
     );
   }
