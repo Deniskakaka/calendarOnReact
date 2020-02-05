@@ -11,9 +11,9 @@ const Day = (props) => {
             {filterTasks(moment().day(day).format('YYYY-MM-DD'), props.tasks).map(i => 
             <div 
                 className="task" 
-                style={{top:`${top(i.start)}px`,height:`${height(i.start, i.end)}px` }} 
+                style={{top:`${top(i.start)}px`,height:`${height(i.start, i.end)}px`}} 
                 key={i} 
-                onClick={(e) => props.showData(i.start,i.end,i.timeStart,i.timeEnd)}>
+                onClick={(e) => props.showData(i.start,i.end,i.timeStart,i.timeEnd,i.id)}>
                 <span>{i.title}</span>
                 <div>
                     <span>{i.start}</span>
@@ -22,7 +22,7 @@ const Day = (props) => {
                 </div>
                 <span></span>
             </div>)}
-            <Hours changeTime={props.changeTime}/>
+            <Hours changeTime={props.changeTime} showData={props.showData}/>
         </div>)
     );
 };

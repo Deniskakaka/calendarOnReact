@@ -9,7 +9,7 @@ const Week = (props) => {
             changeTime={props.changeTime} 
             tasks={props.tasks}  
             openPopapWithDelete={props.openPopapWithDelete}
-            showData={props.showData}   
+            showData={props.showData} 
         />
     );
 };

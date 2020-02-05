@@ -22,7 +22,8 @@ class App extends React.Component {
     start: "",
     end: "",
     timeStart: "",
-    timeEnd: ""
+    timeEnd: "",
+    id:""
   };
 
   nextWeek = () => {
@@ -55,7 +56,8 @@ class App extends React.Component {
 
   openPopap = () => {
     this.setState({
-      open: true
+      open: true,
+      delete:false
     });
   };
 
@@ -77,7 +79,7 @@ class App extends React.Component {
     mass.push(object);
     this.setState({
       tasks: mass,
-      open: false
+      open:false,
     });
   }
 
@@ -95,17 +97,19 @@ class App extends React.Component {
     }
   }
 
-  showData(start, end, timeStart, timeEnd) {
+  showData(start, end, timeStart, timeEnd,id) {
     this.setState({
       start: start,
       end: end,
       timeStart: timeStart,
       timeEnd: timeEnd,
+      id:id,
       delete: true
     });
   }
 
   render() {
+    console.log(this.state.tasks)
     return (
       <>
         <Header
@@ -132,6 +136,7 @@ class App extends React.Component {
           end={this.state.end}
           timeStart={this.state.timeStart}
           timeEnd={this.state.timeEnd}
+          id={this.state.id}
         />
       </>
     );
