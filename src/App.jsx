@@ -81,17 +81,14 @@ class App extends React.Component {
     });
   }
 
-  deleteTask(start, end, timeStart, timeEnd, tasks) {
+  deleteTask(id, tasks) {
     this.setState({
       open: false,
       delete: false
     });
     for (let i = 0; i < tasks.length; i++) {
       if (
-        tasks[i].start === start &&
-        tasks[i].end === end &&
-        tasks[i].timeStart === timeStart &&
-        tasks[i].timeEnd === timeEnd
+        tasks[i].id === id
       ) {
         mass.splice(i, 1);
       }

@@ -10,7 +10,8 @@ class Popap extends React.Component {
         dateStart: '',
         dateEnd: '',
         start: '' ,
-        end: ''
+        end: '',
+        id: getRandomIntInclusive(0,100)
     }
 
     handleChange = event => {
@@ -46,7 +47,7 @@ class Popap extends React.Component {
                         placeholder="Add description" onChange={this.handleChange} value={this.state.description} ></textarea>
                     <div className="footer-popup">
                         {this.props.delete ? <span className="event__btn-delete" onClick={(e) => this.props.deleteTask(
-                            this.props.start,this.props.end,this.props.timeStart,this.props.timeEnd,this.props.tasks
+                            this.state.id,this.props.tasks
                         )}><img className="bascket"
                                 src="https://img.icons8.com/windows/32/000000/trash.png"></img></span>: ''}
                         <button className="event__btn-save" onClick={(e) => this.props.creacteTask({
@@ -56,7 +57,7 @@ class Popap extends React.Component {
                             timeStart:this.state.dateStart,
                             timeEnd: this.state.dateEnd,
                             description:this.state.description,
-                            id: getRandomIntInclusive(0,100)
+                            id: this.state.id
                         })}>Save</button>
                     </div>
                 </form>
