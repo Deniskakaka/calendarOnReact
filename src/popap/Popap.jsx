@@ -120,12 +120,7 @@ class Popap extends React.Component {
             {this.props.delete ? (
               <span
                 className="event__btn-delete"
-                onClick={e =>
-                  this.props.deleteTask(
-                   this.props.id,this.props.tasks
-                  )
-                }
-              >
+                onClick={e =>this.props.deleteTask(this.props.id)}>
                 <img
                   className="bascket"
                   src="https://img.icons8.com/windows/32/000000/trash.png"

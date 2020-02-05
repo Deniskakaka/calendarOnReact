@@ -91,7 +91,7 @@ class App extends React.Component {
     });
   }
 
-  deleteTask(id, tasks) {
+  deleteTask(id) {
     deleteTask(id).then(result => {
       this.fetchTasks()
     })
