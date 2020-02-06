@@ -36,10 +36,3 @@ class Main extends React.Component {
 }
 
 export default Main;
-
-//start
-//end
-//timeStart
-//timeEnd
-//text
-//title

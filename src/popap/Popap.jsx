@@ -131,15 +131,15 @@ class Popap extends React.Component {
             )}
             <button
               className="event__btn-save"
-              onClick={e =>
+              onClick={(e) =>
                 this.props.creacteTask({
-                  title: this.state.title,
+                  title: this.state.title === '' ? 'not task': this.state.title,
                   start: this.state.start,
                   end: this.state.end,
                   timeStart: this.state.dateStart,
                   timeEnd: this.state.dateEnd,
                   description: this.state.description,
-                })
+                },this.props.tasks)
               }
             >
               Save

@@ -2,9 +2,16 @@ import React from "react";
 import Header from "./header/Header.jsx";
 import Main from "./main/Main.jsx";
 import moment from "moment";
-import { createTask, fetchTasksList, deleteTask} from './tasksFunctions.js';
-
-const baseUrl = 'https://5e3194feb92d240014ea4d2b.mockapi.io/api/v1/tasks';
+import {
+  createTask,
+  fetchTasksList,
+  deleteTask
+} from "./tasksFunctions.js";
+import {
+  pastDay,
+  overDay,
+  sameTime
+} from "./main/functionFilter.js";
 
 class App extends React.Component {
   constructor(props) {
@@ -25,20 +32,19 @@ class App extends React.Component {
     end: "",
     timeStart: "",
     timeEnd: "",
-    id:""
+    id: ""
   };
 
   componentDidMount() {
-      this.fetchTasks() 
+    this.fetchTasks();
   }
 
-  fetchTasks= () => {
-    fetchTasksList()
-        .then(tasksList => 
-            this.setState({
-                tasks: tasksList,
-                open:false
-            })
+  fetchTasks = () => {
+    fetchTasksList().then(tasksList =>
+      this.setState({
+        tasks: tasksList,
+        open: false
+      })
     );
   };
 
@@ -72,38 +78,61 @@ class App extends React.Component {
 
   openPopap = () => {
     this.setState({
-      open: true,
+      open: true
     });
   };
 
   closePopap = () => {
     this.setState({
-      open: false,
+      open: false
     });
   };
 
-  creacteTask(object) {
+  creacteTask(object, tasks) {
+    let CorectTime = object.start < object.end;
+    if (object.timeStart === "" || object.timeEnd === "") {
+      alert("Please write date");
+      return null;
+    }
+    if (overDay(object)) {
+      alert("the task can only be in this day");
+      return null;
+    }
+    if (sameTime(tasks, object).length > 0) {
+      alert("time does not have to cross");
+      return null;
+    }
+    if (!CorectTime) {
+      alert("Write corect time or max date 23:45");
+      return null;
+    }
+    if (pastDay(object)) {
+      alert("Your time is over :)");
+      return null;
+    }
     createTask(object).then(result => {
-      this.fetchTasks()
-    })
+      this.fetchTasks();
+    });
     this.setState({
-      open:false,
+      open: false,
+      delete: true
     });
   }
 
   deleteTask(id) {
     deleteTask(id).then(result => {
-      this.fetchTasks()
-    })
+      this.fetchTasks();
+    });
   }
 
-  showData(start, end, timeStart, timeEnd,id) {
+  showData(start, end, timeStart, timeEnd, id) {
+    console.log(timeEnd);
     this.setState({
       start: start,
       end: end,
       timeStart: timeStart,
       timeEnd: timeEnd,
-      id:id
+      id: id
     });
   }
 
@@ -134,7 +163,8 @@ class App extends React.Component {
           timeStart={this.state.timeStart}
           timeEnd={this.state.timeEnd}
           id={this.state.id}
-        />s
+        />
+        s
       </>
     );
   }
