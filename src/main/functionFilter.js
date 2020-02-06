@@ -32,29 +32,57 @@ export const getRandomIntInclusive = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
-
-
 export const sameTime = (tasks, object) => {
-   let sameTime = []
-   for (let i = 0; i < tasks.length; i++) {
-      if (tasks[i].timeStart.slice(5,7) === object.timeStart.slice(5,7) && tasks[i].timeStart.slice(8) === object.timeStart.slice(8) && +tasks[i].start.slice(0,2) === +object.start.slice(0,2) && +tasks[i].start.slice(3) === +object.start.slice(3)) {
-          sameTime.push(object)
-      }
-      if (tasks[i].timeStart.slice(5,7) === object.timeStart.slice(5,7) && tasks[i].timeStart.slice(8) === object.timeStart.slice(8) && +tasks[i].start.slice(0,2) < +object.start.slice(0,2) && +tasks[i].end.slice(0,2) > +object.start.slice(0,2)) {
-          sameTime.push(object)
-      }
-      if (tasks[i].timeStart.slice(5,7) === object.timeStart.slice(5,7) && tasks[i].timeStart.slice(8) === object.timeStart.slice(8) && +tasks[i].start.slice(0,2) === +object.start.slice(0,2) && +tasks[i].start.slice(3) < object.start.slice(3)) {
-          sameTime.push(object)
-      }
+  let sameTime = [];
+  for (let i = 0; i < tasks.length; i++) {
+    if (
+      tasks[i].timeStart.slice(5, 7) ===
+        object.timeStart.slice(5, 7) &&
+      tasks[i].timeStart.slice(8) ===
+        object.timeStart.slice(8) &&
+      +tasks[i].start.slice(0, 2) ===
+        +object.start.slice(0, 2) &&
+      +tasks[i].start.slice(3) === +object.start.slice(3)
+    ) {
+      sameTime.push(object);
     }
+    if (
+      tasks[i].timeStart.slice(5, 7) ===
+        object.timeStart.slice(5, 7) &&
+      tasks[i].timeStart.slice(8) ===
+        object.timeStart.slice(8) &&
+      +tasks[i].start.slice(0, 2) <
+        +object.start.slice(0, 2) &&
+      +tasks[i].end.slice(0, 2) > +object.start.slice(0, 2)
+    ) {
+      sameTime.push(object);
+    }
+    if (
+      tasks[i].timeStart.slice(5, 7) ===
+        object.timeStart.slice(5, 7) &&
+      tasks[i].timeStart.slice(8) ===
+        object.timeStart.slice(8) &&
+      +tasks[i].start.slice(0, 2) ===
+        +object.start.slice(0, 2) &&
+      +tasks[i].start.slice(3) < object.start.slice(3)
+    ) {
+      sameTime.push(object);
+    }
+  }
   return sameTime;
 };
 
+export const overDay = object => {
+  return (object.start.slice(0, 2) === 23 &&
+    object.end.slice(0, 2) > 0) ||
+    object.timeStart < object.timeEnd
+    ? true
+    : false;
+};
 
-export const overDay = (object) => {
- return  object.start.slice(0,2) === 23 && object.end.slice(0,2) > 0 || object.timeStart < object.timeEnd ? true : false;
-}
-
-export const pastDay = (object) => {
-  return object.timeStart < moment().format('YYYY-MM-DD') || object.timeEnd < moment().format('YYYY-MM-DD') ? true: false;
-}
+export const pastDay = object => {
+  return object.timeStart < moment().format("YYYY-MM-DD") ||
+    object.timeEnd < moment().format("YYYY-MM-DD")
+    ? true
+    : false;
+};

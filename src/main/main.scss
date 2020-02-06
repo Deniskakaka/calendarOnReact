@@ -3,3 +3,18 @@ main{
     height: calc(100vh - 242px);
     overflow: auto;
 }
+
+.saidBar{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 1465px;
+    bottom: 0;
+    width: 65px;
+    align-items: flex-end;
+}
+
+.hourTime{
+    flex-grow: 1;
+    margin-right: 10px;
+}

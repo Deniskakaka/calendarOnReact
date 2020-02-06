@@ -164,7 +164,6 @@ class App extends React.Component {
           timeEnd={this.state.timeEnd}
           id={this.state.id}
         />
-        s
       </>
     );
   }
