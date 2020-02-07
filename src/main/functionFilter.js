@@ -73,14 +73,6 @@ export const sameTime = (tasks, object) => {
   return sameTime;
 };
 
-export const overDay = object => {
-  return (object.start.slice(0, 2) === 23 &&
-    object.end.slice(0, 2) > 0) ||
-    object.timeStart < object.timeEnd
-    ? true
-    : false;
-};
-
 export const pastDay = object => {
   return object.timeStart < moment().format("YYYY-MM-DD") ||
     object.timeEnd < moment().format("YYYY-MM-DD")

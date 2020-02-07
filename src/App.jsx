@@ -9,7 +9,6 @@ import {
 } from "./tasksFunctions.js";
 import {
   pastDay,
-  overDay,
   sameTime
 } from "./main/functionFilter.js";
 
@@ -92,10 +91,6 @@ class App extends React.Component {
     let CorectTime = object.start < object.end;
     if (object.timeStart === "" || object.timeEnd === "") {
       alert("Please write date");
-      return null;
-    }
-    if (overDay(object)) {
-      alert("the task can only be in this day");
       return null;
     }
     if (sameTime(tasks, object).length > 0) {
