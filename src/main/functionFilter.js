@@ -1,4 +1,5 @@
 import moment from "moment";
+
 export const filterTasks = (date, array) => {
   let mass = array.filter(i => i.timeStart === date);
   return mass;
