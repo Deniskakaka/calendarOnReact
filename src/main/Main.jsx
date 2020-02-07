@@ -18,6 +18,7 @@ class Main extends React.Component {
           openPopap={this.props.openPopap}
           tasks={this.props.tasks}
           showData={this.props.showData}
+          showHours={this.props.showHours}
         />
         {this.props.open && <Popap
           open={this.props.open}

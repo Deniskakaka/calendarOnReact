@@ -79,3 +79,9 @@ export const pastDay = object => {
     ? true
     : false;
 };
+
+export const littleTime = (object) => {
+  if(+object.start.slice(0, 2) === +object.end.slice(0, 2) && (+object.start.slice(3) - +object.end.slice(3)) < 60 ) {
+    return true
+  }
+}

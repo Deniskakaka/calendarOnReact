@@ -41,7 +41,7 @@ class Day extends React.Component {
                     </div>
                 <span>{i.description}</span>
                 </div>)}
-                <Hours changeTime={this.props.changeTime} showData={this.props.showData}/>
+                <Hours changeTime={this.props.changeTime} showData={this.props.showData} day={day} showHours={this.props.showHours}/>
             </div>)
         );
     }

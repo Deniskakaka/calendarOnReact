@@ -7,15 +7,11 @@ const Hours = props => {
   return TwentyFour().map(hour => (
     <div
       onClick={e =>
-        props.showData(
-          hour < 10
-            ? "0" + hour + ":" + "00"
-            : hour + ":" + "00",
-          hour < 9
-            ? "0" + (hour + 1) + ":" + "00"
-            : hour + 1 + ":" + "00",
-          "",
-          ""
+        props.showHours(
+          hour < 10 ? '0' + hour + ':' + '00' : hour + ':' + '00',
+          hour < 10 ? '0' + (hour + 1) + ':' + '00' : (hour + 1) + ':' + '00',
+          moment().day(props.day).format('YYYY-MM-DD'),
+          moment().day(props.day).format('YYYY-MM-DD')   
         )
       }
       className="hour"

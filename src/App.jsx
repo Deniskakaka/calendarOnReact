@@ -9,7 +9,8 @@ import {
 } from "./tasksFunctions.js";
 import {
   pastDay,
-  sameTime
+  sameTime,
+  littleTime
 } from "./main/functionFilter.js";
 
 class App extends React.Component {
@@ -18,6 +19,7 @@ class App extends React.Component {
     this.creacteTask = this.creacteTask.bind(this);
     this.deleteTask = this.deleteTask.bind(this);
     this.showData = this.showData.bind(this);
+    this.showHours = this.showHours.bind(this);
   }
 
   state = {
@@ -25,7 +27,7 @@ class App extends React.Component {
     monday: moment().isoWeekday(1),
     saturday: moment().isoWeekday(6),
     open: false,
-    delete: true,
+    delete: false,
     tasks: [],
     start: "",
     end: "",
@@ -105,6 +107,10 @@ class App extends React.Component {
       alert("Your time is over :)");
       return null;
     }
+    if(littleTime(object)) {
+      alert("task won't be less one hour")
+      return null;
+    }
     createTask(object).then(result => {
       this.fetchTasks();
     });
@@ -121,13 +127,23 @@ class App extends React.Component {
   }
 
   showData(start, end, timeStart, timeEnd, id) {
-    console.log(timeEnd);
     this.setState({
       start: start,
       end: end,
       timeStart: timeStart,
       timeEnd: timeEnd,
-      id: id
+      id: id,
+      delete:true
+    });
+  }
+
+  showHours(start, end, timeStart, timeEnd) {
+    this.setState({
+      start: start,
+      end: end,
+      timeStart: timeStart,
+      timeEnd: timeEnd,
+      delete:false
     });
   }
 
@@ -158,6 +174,7 @@ class App extends React.Component {
           timeStart={this.state.timeStart}
           timeEnd={this.state.timeEnd}
           id={this.state.id}
+          showHours={this.showHours}
         />
       </>
     );
