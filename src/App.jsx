@@ -82,6 +82,16 @@ class App extends React.Component {
       open: true
     });
   };
+  
+  openClearPopap = () => {
+    this.setState({
+      open: true,
+      start: "",
+      end: "",
+      timeStart: "",
+      timeEnd: ""
+    });
+  }
 
   closePopap = () => {
     this.setState({
@@ -151,7 +161,7 @@ class App extends React.Component {
     return (
       <>
         <Header
-          openPopap={this.openPopap}
+          openClearPopap={this.openClearPopap}
           monday={this.state.monday}
           saturday={this.state.saturday}
           ArrayOFWeek={this.state.ArrayOFWeek}

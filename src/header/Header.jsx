@@ -1,18 +1,22 @@
-import React from 'react';
-import HeaderMenu from './HeaderMenu.jsx';
-import HeaderWeek from './HeaderWeek.jsx';
-import './header.scss';
+import React from "react";
+import HeaderMenu from "./HeaderMenu.jsx";
+import HeaderWeek from "./HeaderWeek.jsx";
+import "./header.scss";
 
-class Header extends React.Component {
-
-    render() {
-        return (
-            <header>
-                <HeaderMenu openPopap={this.props.openPopap} nextWeek={this.props.nextWeek} lastWeek={this.props.lastWeek} monday={this.props.monday} saturday={this.props.saturday} toDay={this.props.toDay}/>
-                <HeaderWeek ArrayOFWeek={this.props.ArrayOFWeek}/>
-            </header> 
-        );
-    }
+const Header = (props) => {
+  return (
+    <header>
+      <HeaderMenu
+        openClearPopap={props.openClearPopap}
+        nextWeek={props.nextWeek}
+        lastWeek={props.lastWeek}
+        monday={props.monday}
+        saturday={props.saturday}
+        toDay={props.toDay}
+      />
+      <HeaderWeek ArrayOFWeek={props.ArrayOFWeek} />
+    </header>
+  );
 };
 
 export default Header;
