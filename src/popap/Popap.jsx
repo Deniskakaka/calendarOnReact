@@ -36,12 +36,9 @@ class Popap extends React.Component {
   render() {
     return (
       <>
+        <div className="black" onClick={this.props.closePopap}></div>
         <form
-          className={
-            this.props.open
-              ? "popup event"
-              : "popup event display-none"
-          }
+          className="popup event"
           onSubmit={this.handleSubmit}
         >
           <span

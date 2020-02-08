@@ -27,12 +27,6 @@ export const height = (timeStart, timeEnd) => {
   return hours + minuts;
 };
 
-export const getRandomIntInclusive = (min, max) => {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-};
-
 export const sameTime = (tasks, object) => {
   let sameTime = [];
   for (let i = 0; i < tasks.length; i++) {
@@ -81,7 +75,9 @@ export const pastDay = object => {
 };
 
 export const littleTime = (object) => {
-  if(+object.start.slice(0, 2) === +object.end.slice(0, 2) && (+object.start.slice(3) - +object.end.slice(3)) < 60 ) {
-    return true
-  }
+  return +object.start.slice(0, 2) === +object.end.slice(0, 2) && (+object.start.slice(3) - +object.end.slice(3)) < 60
+}
+
+export const sixHours = (object) => {
+   return +object.end.slice(0, 2) - +object.start.slice(0, 2) > 6
 }

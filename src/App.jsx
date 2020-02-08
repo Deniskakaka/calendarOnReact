@@ -10,7 +10,8 @@ import {
 import {
   pastDay,
   sameTime,
-  littleTime
+  littleTime,
+  sixHours
 } from "./main/functionFilter.js";
 
 class App extends React.Component {
@@ -119,6 +120,10 @@ class App extends React.Component {
     }
     if(littleTime(object)) {
       alert("task won't be less one hour")
+      return null;
+    }
+    if(sixHours(object)) {
+      alert('the task cannot be more than six hours');
       return null;
     }
     createTask(object).then(result => {

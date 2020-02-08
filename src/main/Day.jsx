@@ -39,7 +39,7 @@ class Day extends React.Component {
                         <span className="task__line">-</span>
                         <span className="task__time">{i.end}</span>
                     </div>
-                <span>{i.description}</span>
+                <span className="task__description">{i.description}</span>
                 </div>)}
                 <Hours changeTime={this.props.changeTime} showData={this.props.showData} day={day} showHours={this.props.showHours}/>
             </div>)
