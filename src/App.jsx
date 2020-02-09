@@ -11,7 +11,8 @@ import {
   pastDay,
   sameTime,
   littleTime,
-  sixHours
+  sixHours,
+  toDay
 } from "./main/functionFilter.js";
 
 class App extends React.Component {
@@ -25,8 +26,8 @@ class App extends React.Component {
 
   state = {
     ArrayOFWeek: [0, 1, 2, 3, 4, 5, 6],
-    monday: moment().isoWeekday(1),
-    saturday: moment().isoWeekday(6),
+    sunday: moment().isoWeekday(7),
+    saturday:moment().isoWeekday(7).day(6),
     open: false,
     delete: false,
     tasks: [],
@@ -55,7 +56,7 @@ class App extends React.Component {
       ArrayOFWeek: this.state.ArrayOFWeek.map(
         day => day + 7
       ),
-      monday: this.state.monday.add(7, "days"),
+      sunday: this.state.sunday.add(7, "days"),
       saturday: this.state.saturday.add(7, "days")
     });
   };
@@ -65,7 +66,7 @@ class App extends React.Component {
       ArrayOFWeek: this.state.ArrayOFWeek.map(
         day => day - 7
       ),
-      monday: this.state.monday.add(-7, "days"),
+      sunday: this.state.sunday.add(-7, "days"),
       saturday: this.state.saturday.add(-7, "days")
     });
   };
@@ -73,7 +74,7 @@ class App extends React.Component {
   toDay = () => {
     this.setState({
       ArrayOFWeek: [0, 1, 2, 3, 4, 5, 6],
-      monday: moment().isoWeekday(1),
+      sunday: moment().isoWeekday(7),
       saturday: moment().isoWeekday(6)
     });
   };
@@ -83,7 +84,7 @@ class App extends React.Component {
       open: true
     });
   };
-  
+
   openClearPopap = () => {
     this.setState({
       open: true,
@@ -92,7 +93,7 @@ class App extends React.Component {
       timeStart: "",
       timeEnd: ""
     });
-  }
+  };
 
   closePopap = () => {
     this.setState({
@@ -118,12 +119,16 @@ class App extends React.Component {
       alert("Your time is over :)");
       return null;
     }
-    if(littleTime(object)) {
-      alert("task won't be less one hour")
+    if (littleTime(object)) {
+      alert("task won't be less one hour");
       return null;
     }
-    if(sixHours(object)) {
-      alert('the task cannot be more than six hours');
+    if (sixHours(object)) {
+      alert("the task cannot be more than six hours");
+      return null;
+    }
+    if (toDay(object)) {
+      alert("task can not more than one day");
       return null;
     }
     createTask(object).then(result => {
@@ -135,7 +140,18 @@ class App extends React.Component {
     });
   }
 
-  deleteTask(id) {
+  deleteTask(id, timeEnd, end) {
+    if (
+      timeEnd === moment().format("YYYY-MM-DD") &&
+      +end.slice(0, 2) === +moment().format("HH") &&
+      Math.abs(+end.slice(3) - moment().format("mm")) < 15 &&
+      end.slice(3) > moment().format("mm")
+    ) {
+      alert(
+        "the task cannot be deleted for fifteen minutes to the end"
+      );
+      return null;
+    }
     deleteTask(id).then(result => {
       this.fetchTasks();
     });
@@ -148,7 +164,7 @@ class App extends React.Component {
       timeStart: timeStart,
       timeEnd: timeEnd,
       id: id,
-      delete:true
+      delete: true
     });
   }
 
@@ -158,7 +174,7 @@ class App extends React.Component {
       end: end,
       timeStart: timeStart,
       timeEnd: timeEnd,
-      delete:false
+      delete: false
     });
   }
 
@@ -167,7 +183,7 @@ class App extends React.Component {
       <>
         <Header
           openClearPopap={this.openClearPopap}
-          monday={this.state.monday}
+          sunday={this.state.sunday}
           saturday={this.state.saturday}
           ArrayOFWeek={this.state.ArrayOFWeek}
           nextWeek={this.nextWeek}

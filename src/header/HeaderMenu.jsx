@@ -3,7 +3,7 @@ import "./HeaderMenuStyle.scss";
 
 const HeaderMenu = props => {
   const nextMonth =
-    +props.monday.format("D") > +props.saturday.format("D");
+    +props.sunday.format("D") > +props.saturday.format("D");
   return (
     <div className="header-menu">
       <button
@@ -35,7 +35,7 @@ const HeaderMenu = props => {
       </div>
       <div className="header-menu-months">
         <span className="header-menu-months__nowMonth">
-          {props.monday.format("MMMM")}
+          {props.sunday.format("MMMM")}
         </span>
         {nextMonth ? (
           <div>
@@ -50,7 +50,7 @@ const HeaderMenu = props => {
           ""
         )}
         <span className="header-menu-months__year">
-          {props.monday.format("YYYY")}
+          {props.sunday.format("YYYY")}
         </span>
       </div>
     </div>

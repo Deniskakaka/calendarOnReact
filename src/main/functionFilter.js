@@ -76,8 +76,12 @@ export const pastDay = object => {
 
 export const littleTime = (object) => {
   return +object.start.slice(0, 2) === +object.end.slice(0, 2) && (+object.start.slice(3) - +object.end.slice(3)) < 60
-}
+};
 
 export const sixHours = (object) => {
    return +object.end.slice(0, 2) - +object.start.slice(0, 2) > 6
-}
+};
+
+export const toDay = (object) => {
+  return object.timeStart.slice(8) < object.timeEnd.slice(8) || object.timeStart.slice(5, 7) < object.timeEnd.slice(5, 7) || object.timeStart.slice(1, 4) < object.timeEnd.slice(1, 4)
+};
