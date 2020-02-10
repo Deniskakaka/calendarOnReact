@@ -75,7 +75,7 @@ class App extends React.Component {
     this.setState({
       ArrayOFWeek: [0, 1, 2, 3, 4, 5, 6],
       sunday: moment().isoWeekday(7),
-      saturday: moment().isoWeekday(6)
+      saturday:moment().isoWeekday(7).day(6)
     });
   };
 
