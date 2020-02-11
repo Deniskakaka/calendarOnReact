@@ -1,7 +1,7 @@
 import React from "react";
 import { TwentyFour } from "./functionTwentyFour.js";
-import "./hour.scss";
 import moment from "moment";
+import './hour.scss';
 
 const Hours = props => {
   return TwentyFour().map(hour => (

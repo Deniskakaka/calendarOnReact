@@ -1,5 +1,6 @@
 import React from "react";
 import moment from "moment";
+import './day.scss';
 
 const Day = props => {
   const today = moment().format("YYYY-MM-D");

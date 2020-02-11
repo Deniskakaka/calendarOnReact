@@ -1,7 +1,7 @@
 import React from "react";
 import HeaderMenu from "./HeaderMenu.jsx";
 import HeaderWeek from "./HeaderWeek.jsx";
-import "./header.scss";
+import './header.scss';
 
 const Header = (props) => {
   return (

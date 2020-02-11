@@ -1,6 +1,5 @@
 import React from "react";
 import "./popap.scss";
-import { getRandomIntInclusive } from "../main/functionFilter.js";
 
 class Popap extends React.Component {
   state = {

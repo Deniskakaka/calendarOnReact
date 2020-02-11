@@ -1,5 +1,4 @@
 import React from 'react';
-import './day.scss';
 import Day from './Day.jsx';
 
 const HeaderWeek = (props) => {

@@ -1,8 +1,8 @@
 import React from "react";
 import Week from "./Week.jsx";
 import Popap from "../popap/Popap.jsx";
-import "./main.scss";
 import SaidBar from "./SaidBar.jsx";
+import './main.scss';
 
 class Main extends React.Component {
   constructor(props) {
@@ -32,8 +32,7 @@ class Main extends React.Component {
           timeStart={this.props.timeStart}
           timeEnd={this.props.timeEnd}
           id={this.props.id}
-        />}
-        
+        />}     
       </main>
     );
   }
