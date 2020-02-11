@@ -60,7 +60,7 @@ describe('<HeaderMenu/>', () => {
         expect(props.nextWeek).toBeCalled();
     });
 
-    it('should called nextWeek', () => {
+    it('should show nowMonth', () => {
         const props = {
             openClearPopap: jest.fn(),
             toDay: jest.fn(),
