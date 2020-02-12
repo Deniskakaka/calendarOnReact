@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Day/> should display show class task 1`] = `
+Array [
+  <Hours
+    day={1}
+  />,
+  <Hours
+    day={2}
+  />,
+  <Hours
+    day={3}
+  />,
+  <Hours
+    day={4}
+  />,
+  <Hours
+    day={5}
+  />,
+  <Hours
+    day={6}
+  />,
+  <Hours
+    day={7}
+  />,
+]
+`;
