@@ -8,7 +8,7 @@
 
 <h2>The tech stack is:</h2>
 <ul>
-  <li>HTML</li>
+  <li><a href="https://ru.wikipedia.org/wiki/HTML5">HTML<a/></li>
   <li>SCSS</li>
   <li>BEM</li>
   <li>REACT</li>
