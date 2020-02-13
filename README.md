@@ -9,9 +9,9 @@
 <h2>The tech stack is:</h2>
 <ul>
   <li><a href="https://ru.wikipedia.org/wiki/HTML5">HTML<a/></li>
-  <li>SCSS</li>
-  <li>BEM</li>
-  <li>REACT</li>
+  <li><a href="https://sass-lang.com/">SASS(SCSS)</a></li>
+  <li><a href=""https://ru.bem.info/methodology/>BEM<a/></li>
+  <li><a href="https://ru.reactjs.org/">REACT</a></li>
 </ul>
 
 <h2>Author Skab Denis</h2>
