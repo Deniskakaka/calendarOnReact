@@ -2,6 +2,7 @@ import React from "react";
 import './headerMenuStyle.scss';
 
 const HeaderMenu = props => {
+  console.log(+props.sunday.format("D") , +props.saturday.format("D"))
   const nextMonth =
     +props.sunday.format("D") > +props.saturday.format("D");
   return (
