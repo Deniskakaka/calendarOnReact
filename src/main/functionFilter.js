@@ -1,5 +1,13 @@
 import moment from "moment";
 
+export function nextMonth (monday, saturday,day) {
+  if (monday > saturday) {
+    return  day.format("MMMM")
+  } else {
+    return null;
+  }
+}
+
 export const filterTasks = (date, array) => {
   let mass = array.filter(i => i.timeStart === date);
   return mass;

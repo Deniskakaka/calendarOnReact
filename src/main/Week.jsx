@@ -4,7 +4,7 @@ import Day from './Day.jsx';
 const Week = (props) => {
     return (
         <Day 
-            ArrayOFWeek={props.ArrayOFWeek} 
+            ArrayOfWeek={props.ArrayOfWeek} 
             openPopap={props.openPopap} 
             changeTime={props.changeTime} 
             tasks={props.tasks}  

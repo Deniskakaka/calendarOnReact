@@ -14,7 +14,7 @@ class Main extends React.Component {
       <main>
         <SaidBar/>
         <Week
-          ArrayOFWeek={this.props.ArrayOFWeek}
+          ArrayOfWeek={this.props.ArrayOfWeek}
           openPopap={this.props.openPopap}
           tasks={this.props.tasks}
           showData={this.props.showData}

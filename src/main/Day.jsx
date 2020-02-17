@@ -24,7 +24,7 @@ class Day extends React.Component {
 
     render() {
         return (
-            this.props.ArrayOFWeek.map(day => 
+            this.props.ArrayOfWeek.map(day => 
             <div className="dayWeek" key={day} onClick={this.props.openPopap}>
                 {moment().format('YYYY-MM-DD') === moment().day(day).format("YYYY-MM-DD") ? <div className="redLine" style={{top:`${+this.state.time}px`}}></div> : null}
                 {filterTasks(moment().day(day).format('YYYY-MM-DD'), this.props.tasks).map(i => 

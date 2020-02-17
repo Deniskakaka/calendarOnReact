@@ -1,10 +1,10 @@
 import React from "react";
-import { TwentyFour } from "./functionTwentyFour.js";
+import { twentyFour } from "./functionTwentyFour.js";
 import moment from "moment";
 import './hour.scss';
 
 const Hours = props => {
-  return TwentyFour().map(hour => (
+  return twentyFour().map(hour => (
     <div
       onClick={e =>
         props.showHours(

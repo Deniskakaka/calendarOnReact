@@ -1,10 +1,8 @@
 import React from "react";
 import './headerMenuStyle.scss';
+import { nextMonth } from '../main/functionFilter.js'
 
 const HeaderMenu = props => {
-  console.log(+props.sunday.format("D") , +props.saturday.format("D"))
-  const nextMonth =
-    +props.sunday.format("D") > +props.saturday.format("D");
   return (
     <div className="header-menu">
       <button
@@ -38,18 +36,9 @@ const HeaderMenu = props => {
         <span className="header-menu-months__nowMonth">
           {props.sunday.format("MMMM")}
         </span>
-        {nextMonth ? (
-          <div>
-            <span className="header-menu-months__line">
-              -
-            </span>
-            <span className="header-menu-months__nextMonth">
-              {props.saturday.format("MMMM")}
-            </span>
-          </div>
-        ) : (
-          ""
-        )}
+        <span className="header-menu-months__nextMonth">
+            {nextMonth (+props.sunday.format("D"), +props.saturday.format("D"), props.saturday)}
+        </span>
         <span className="header-menu-months__year">
           {props.sunday.format("YYYY")}
         </span>

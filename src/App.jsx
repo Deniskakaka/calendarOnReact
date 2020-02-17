@@ -25,7 +25,7 @@ class App extends React.Component {
   }
 
   state = {
-    ArrayOFWeek: [1, 2, 3, 4, 5, 6, 7],
+    ArrayOfWeek: [1, 2, 3, 4, 5, 6, 7],
     sunday: moment().isoWeekday(1),
     saturday:moment().isoWeekday(6),
     open: false,
@@ -53,7 +53,7 @@ class App extends React.Component {
 
   nextWeek = () => {
     this.setState({
-      ArrayOFWeek: this.state.ArrayOFWeek.map(
+      ArrayOfWeek: this.state.ArrayOfWeek.map(
         day => day + 7
       ),
       sunday: this.state.sunday.add(7, "days"),
@@ -63,7 +63,7 @@ class App extends React.Component {
 
   lastWeek = () => {
     this.setState({
-      ArrayOFWeek: this.state.ArrayOFWeek.map(
+      ArrayOfWeek: this.state.ArrayOfWeek.map(
         day => day - 7
       ),
       sunday: this.state.sunday.add(-7, "days"),
@@ -73,7 +73,7 @@ class App extends React.Component {
 
   toDay = () => {
     this.setState({
-      ArrayOFWeek: [1, 2, 3, 4, 5, 6, 7],
+      ArrayOfWeek: [1, 2, 3, 4, 5, 6, 7],
       sunday: moment().isoWeekday(1),
       saturday:moment().isoWeekday(6),
     });
@@ -185,13 +185,13 @@ class App extends React.Component {
           openClearPopap={this.openClearPopap}
           sunday={this.state.sunday}
           saturday={this.state.saturday}
-          ArrayOFWeek={this.state.ArrayOFWeek}
+          ArrayOFWeek={this.state.ArrayOfWeek}
           nextWeek={this.nextWeek}
           lastWeek={this.lastWeek}
           toDay={this.toDay}
         />
         <Main
-          ArrayOFWeek={this.state.ArrayOFWeek}
+          ArrayOfWeek={this.state.ArrayOfWeek}
           openPopap={this.openPopap}
           closePopap={this.closePopap}
           open={this.state.open}
