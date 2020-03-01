@@ -1,8 +1,9 @@
 import React from "react";
 import './headerMenuStyle.scss';
 import { nextMonth } from '../main/functionFilter.js'
-
+import moment from 'moment';
 const HeaderMenu = props => {
+  console.log(moment(props.sunday).format('DD'))
   return (
     <div className="header-menu">
       <button

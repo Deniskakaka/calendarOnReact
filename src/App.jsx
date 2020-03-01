@@ -25,9 +25,9 @@ class App extends React.Component {
   }
 
   state = {
-    ArrayOfWeek: [1, 2, 3, 4, 5, 6, 7],
-    sunday: moment().isoWeekday(1),
-    saturday:moment().isoWeekday(6),
+    ArrayOfWeek: [0, 1, 2, 3, 4, 5, 6],
+    sunday: moment().isoWeekday(7),
+    saturday:moment().add(7, "days").isoWeekday(6),
     open: false,
     delete: false,
     tasks: [],
@@ -73,9 +73,9 @@ class App extends React.Component {
 
   toDay = () => {
     this.setState({
-      ArrayOfWeek: [1, 2, 3, 4, 5, 6, 7],
-      sunday: moment().isoWeekday(1),
-      saturday:moment().isoWeekday(6),
+      ArrayOfWeek: [0, 1, 2, 3, 4, 5, 6],
+      sunday: moment().isoWeekday(7),
+      saturday:moment().add(7, "days").isoWeekday(6),
     });
   };
 
