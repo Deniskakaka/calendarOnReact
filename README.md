@@ -15,19 +15,3 @@
 </ul>
 
 <h2>Author Skab Denis</h2>
-   
-**First clone repositorie** 
-   
-    git clone    
-          
-**Second second install all dependencies**
-
-    npm i
-
-**third install separately dependency**
-
-    npm i -D react-calendar
-   
-**fourth start the local server**  
-
-    npm start
