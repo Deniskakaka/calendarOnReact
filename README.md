@@ -15,3 +15,11 @@
 </ul>
 
 <h2>Author Skab Denis</h2>
+
+   <ol>
+   
+   <li>First clone repositorie
+       git clone
+   </li>
+   
+   </ol>
