@@ -18,8 +18,16 @@
    
 **First clone repositorie** 
    
-       git clone    
+    git clone    
           
 **Second second install all dependencies**
 
     npm i
+
+**third install separately dependency**
+
+    npm i -D react-calendar
+   
+**fourth start the local server**  
+
+    npm start
