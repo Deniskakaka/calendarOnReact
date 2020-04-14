@@ -15,9 +15,11 @@
 </ul>
 
 <h2>Author Skab Denis</h2>
- <ol>
    
-   <li>First clone repositorie </li>
+**First clone repositorie** 
    
-       git clone            
-   </ol>
+       git clone    
+          
+**Second second install all dependencies**
+
+    npm i
