@@ -18,5 +18,5 @@
  <ol>
    
    <li>First clone repositorie </li>
-       git clone        
+       git clone            
    </ol>
