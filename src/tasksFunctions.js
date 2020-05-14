@@ -1,4 +1,4 @@
-const baseUrl = 'https://5e3194feb92d240014ea4d2b.mockapi.io/api/v1/tasks';
+const baseUrl = 'https://5ebd4202ec34e900161920b0.mockapi.io/tasks';
 
 export const createTask = taskData => {
   return  fetch(baseUrl, {
