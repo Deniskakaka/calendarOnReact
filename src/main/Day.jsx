@@ -31,7 +31,7 @@ class Day extends React.Component {
                 <div 
                     className="task" 
                     style={{top:`${top(i.start)}px`,height:`${height(i.start, i.end)}px`}} 
-                    key={day} 
+                    key={Math.random()} 
                     onClick={(e) => this.props.showData(i.start,i.end,i.timeStart,i.timeEnd,i.id)}>
                     <span className="task__title">{i.title}</span>
                     <div>
@@ -45,7 +45,6 @@ class Day extends React.Component {
             </div>)
         );
     }
-    
 };
 
 export default Day;

@@ -1,4 +1,5 @@
 import React from "react";
+import { Formik } from 'formik';
 import "./popap.scss";
 
 class Popap extends React.Component {
@@ -13,10 +14,10 @@ class Popap extends React.Component {
 
   componentDidMount() {
     this.setState({
-        start:this.props.start,
-        end: this.props.end,
-        dateStart:this.props.timeStart,
-        dateEnd:this.props.timeEnd
+      start: this.props.start,
+      end: this.props.end,
+      dateStart: this.props.timeStart,
+      dateEnd: this.props.timeEnd
     });
   };
 
@@ -116,26 +117,26 @@ class Popap extends React.Component {
             {this.props.delete ? (
               <span
                 className="event__btn-delete"
-                onClick={e =>this.props.deleteTask(this.props.id,this.props.timeEnd,this.props.end)}>
+                onClick={e => this.props.deleteTask(this.props.id, this.props.timeEnd, this.props.end)}>
                 <img
                   className="bascket"
                   src="https://img.icons8.com/windows/32/000000/trash.png"
                 ></img>
               </span>
             ) : (
-              ""
-            )}
+                ""
+              )}
             <button
               className="event__btn-save"
               onClick={(e) =>
                 this.props.creacteTask({
-                  title: this.state.title === '' ? 'not task': this.state.title,
+                  title: this.state.title === '' ? 'not task' : this.state.title,
                   start: this.state.start,
                   end: this.state.end,
                   timeStart: this.state.dateStart,
                   timeEnd: this.state.dateEnd,
                   description: this.state.description,
-                },this.props.tasks)
+                }, this.props.tasks)
               }
             >
               Save

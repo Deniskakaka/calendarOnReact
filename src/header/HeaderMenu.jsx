@@ -1,9 +1,10 @@
 import React from "react";
 import './headerMenuStyle.scss';
 import { nextMonth } from '../main/functionFilter.js'
-import moment from 'moment';
+import moment from "moment";
+
 const HeaderMenu = props => {
-  console.log(moment(props.sunday).format('DD'))
+
   return (
     <div className="header-menu">
       <button
@@ -35,10 +36,10 @@ const HeaderMenu = props => {
       </div>
       <div className="header-menu-months">
         <span className="header-menu-months__nowMonth">
-          {props.sunday.format("MMMM")}
+          {moment().day(props.ArrayOFWeek[0]).format("MMMM")}
         </span>
         <span className="header-menu-months__nextMonth">
-            {nextMonth (+props.sunday.format("D"), +props.saturday.format("D"), props.saturday)}
+            {nextMonth (props.ArrayOFWeek)}
         </span>
         <span className="header-menu-months__year">
           {props.sunday.format("YYYY")}

@@ -1,7 +1,7 @@
 import React from "react";
 import { twentyFour } from "./functionTwentyFour.js";
 
-const SaidBar = () => {
+function SaidBar () {
   return (
     <div className="saidBar">
       {twentyFour().map(i => (

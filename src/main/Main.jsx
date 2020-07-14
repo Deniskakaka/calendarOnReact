@@ -2,40 +2,36 @@ import React from "react";
 import Week from "./Week.jsx";
 import Popap from "../popap/Popap.jsx";
 import SaidBar from "./SaidBar.jsx";
+import Form from "../popap/Form.jsx"
 import './main.scss';
 
-class Main extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+function Main({ ...props }) {
 
-  render() {
-    return (
-      <main>
-        <SaidBar/>
-        <Week
-          ArrayOfWeek={this.props.ArrayOfWeek}
-          openPopap={this.props.openPopap}
-          tasks={this.props.tasks}
-          showData={this.props.showData}
-          showHours={this.props.showHours}
-        />
-        {this.props.open && <Popap
-          open={this.props.open}
-          closePopap={this.props.closePopap}
-          creacteTask={this.props.creacteTask}
-          delete={this.props.delete}
-          deleteTask={this.props.deleteTask}
-          tasks={this.props.tasks}
-          start={this.props.start}
-          end={this.props.end}
-          timeStart={this.props.timeStart}
-          timeEnd={this.props.timeEnd}
-          id={this.props.id}
-        />}     
-      </main>
-    );
-  }
+  return (
+    <main>
+      <SaidBar />
+      <Week
+        ArrayOfWeek={props.ArrayOfWeek}
+        openPopap={props.openPopap}
+        tasks={props.tasks}
+        showData={props.showData}
+        showHours={props.showHours}
+      />
+      {props.open &&  <Form
+        open={props.open}
+        closePopap={props.closePopap}
+        creacteTask={props.creacteTask}
+        delete={props.delete}
+        deleteTask={props.deleteTask}
+        tasks={props.tasks}
+        start={props.start}
+        end={props.end}
+        timeStart={props.timeStart}
+        timeEnd={props.timeEnd}
+        id={props.id}
+      ></Form>}
+    </main>
+  );
 }
 
 export default Main;

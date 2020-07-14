@@ -1,7 +1,7 @@
 import React from 'react';
 import Day from './Day.jsx';
 
-const Week = (props) => {
+function Week ({...props}) {
     return (
         <Day 
             ArrayOfWeek={props.ArrayOfWeek} 

@@ -13,8 +13,9 @@ const Header = (props) => {
         sunday={props.sunday}
         saturday={props.saturday}
         toDay={props.toDay}
+        ArrayOFWeek={props.ArrayOFWeek}
       />
-      <HeaderWeek ArrayOFWeek={props.ArrayOFWeek} />
+      <HeaderWeek ArrayOFWeek={props.ArrayOFWeek}/>
     </header>
   );
 };

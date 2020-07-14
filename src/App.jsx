@@ -103,32 +103,8 @@ class App extends React.Component {
 
   creacteTask(object, tasks) {
     let CorectTime = object.start < object.end;
-    if (object.timeStart === "" || object.timeEnd === "") {
-      alert("Please write date");
-      return null;
-    }
-    if (sameTime(tasks, object).length > 0) {
-      alert("time does not have to cross");
-      return null;
-    }
     if (!CorectTime) {
       alert("Write corect time or max date 23:45");
-      return null;
-    }
-    if (pastDay(object)) {
-      alert("Your time is over :)");
-      return null;
-    }
-    if (littleTime(object)) {
-      alert("task won't be less one hour");
-      return null;
-    }
-    if (sixHours(object)) {
-      alert("the task cannot be more than six hours");
-      return null;
-    }
-    if (toDay(object)) {
-      alert("task can not more than one day");
       return null;
     }
     createTask(object).then(result => {
@@ -206,6 +182,7 @@ class App extends React.Component {
           timeEnd={this.state.timeEnd}
           id={this.state.id}
           showHours={this.showHours}
+          ref={this.myref}
         />
       </>
     );

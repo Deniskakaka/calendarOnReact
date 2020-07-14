@@ -4,6 +4,7 @@
   "main": "webpack.config.js",
   "dependencies": {
     "core-js": "^3.6.3",
+    "formik": "^2.1.4",
     "identity-obj-proxy": "^3.0.0",
     "style-loader": "^1.1.2"
   },
