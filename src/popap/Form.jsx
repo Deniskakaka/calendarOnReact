@@ -13,7 +13,7 @@ function Form({ ...props }) {
 
     const validate = values => {
         const errors = {}
-        if (pastDay(values.dateStart)) {
+        if (pastDay(values.timeStart)) {
             errors.dateStart = false;
             alert("Your time is over :)")
         }
@@ -35,7 +35,6 @@ function Form({ ...props }) {
         }
         return errors;
     }
-    
     const formik = useFormik({
         initialValues: {
             description: "",
@@ -59,6 +58,7 @@ function Form({ ...props }) {
             }
         },
     });
+    console.log(pastDay(formik.values.timeStart))
     return (
         <>
             <div className="black" onClick={props.closePopap}></div>

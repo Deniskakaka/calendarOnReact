@@ -56,6 +56,7 @@ export const sameTime = (tasks, obj) => {
 };
 
 export const pastDay = (string) => {
+  console.log(string)
   return string < moment().format("YYYY-MM-DD")
     ? true
     : false;
