@@ -10,9 +10,7 @@ const Header = (props) => {
         openClearPopap={props.openClearPopap}
         nextWeek={props.nextWeek}
         lastWeek={props.lastWeek}
-        sunday={props.sunday}
-        saturday={props.saturday}
-        toDay={props.toDay}
+        getThisDay={props.getThisDay}
         ArrayOFWeek={props.ArrayOFWeek}
       />
       <HeaderWeek ArrayOFWeek={props.ArrayOFWeek}/>

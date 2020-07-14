@@ -7,13 +7,6 @@ import {
   fetchTasksList,
   deleteTask
 } from "./tasksFunctions.js";
-import {
-  pastDay,
-  sameTime,
-  littleTime,
-  sixHours,
-  toDay
-} from "./main/functionFilter.js";
 
 class App extends React.Component {
   constructor(props) {
@@ -159,12 +152,10 @@ class App extends React.Component {
       <>
         <Header
           openClearPopap={this.openClearPopap}
-          sunday={this.state.sunday}
-          saturday={this.state.saturday}
           ArrayOFWeek={this.state.ArrayOfWeek}
           nextWeek={this.nextWeek}
           lastWeek={this.lastWeek}
-          toDay={this.toDay}
+          getThisDay={this.toDay}
         />
         <Main
           ArrayOfWeek={this.state.ArrayOfWeek}
@@ -182,7 +173,6 @@ class App extends React.Component {
           timeEnd={this.state.timeEnd}
           id={this.state.id}
           showHours={this.showHours}
-          ref={this.myref}
         />
       </>
     );

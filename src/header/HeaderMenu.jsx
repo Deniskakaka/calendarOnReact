@@ -16,7 +16,7 @@ const HeaderMenu = props => {
       </button>
       <button
         className="header-menu__today"
-        onClick={props.toDay}
+        onClick={props.getThisDay}
       >
         Today
       </button>
@@ -42,7 +42,7 @@ const HeaderMenu = props => {
             {nextMonth (props.ArrayOFWeek)}
         </span>
         <span className="header-menu-months__year">
-          {props.sunday.format("YYYY")}
+          {moment().day(props.ArrayOFWeek[0]).format("YYYY")}
         </span>
       </div>
     </div>
